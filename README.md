@@ -13,4 +13,6 @@ Lancement Spring Boot Server
 
     $ mvn spring-boot:run 
 
+Lancement Angular 
 
+    $ ng serve --open
