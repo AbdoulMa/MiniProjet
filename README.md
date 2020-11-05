@@ -7,10 +7,10 @@
 ### Exécution du serveur 
 Construction 
 
-  $ mvn clean install
+    $ mvn clean install
   
-Lancement S pring Boot Server 
+Lancement Spring Boot Server 
 
-  $ mvn spring-boot:run 
+    $ mvn spring-boot:run 
 
 
