@@ -151,7 +151,7 @@ public class Article {
 	@Override
 	public String toString() {
 		return "Article [id=" + id + ", titre=" + titre + ", corps=" + corps + ", datePublication=" + datePublication
-				+"]\n";
+				+" source ="+source+" ]\n";
 	}
 	 
 }
