@@ -2,6 +2,11 @@
 
 ### Implémentation du code backend 
 
+* Implémentation classe `Article`
+* Mise en place du controleur `ArticleController`
+* Implémentation de l'interface `ArticleRepository` 
+
+
 ### Réalisation de la partie front end en Angular
 
 ### Exécution du serveur 
