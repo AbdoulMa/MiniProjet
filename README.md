@@ -5,6 +5,7 @@
 * Implémentation classe `Article`
 * Mise en place du controleur `ArticleController`
 * Implémentation de l'interface `ArticleRepository` 
+* Initialisation du répertoire d'articles dans `ActualisApplication`
 
 
 ### Réalisation de la partie front end en Angular
