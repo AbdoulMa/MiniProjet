@@ -2,13 +2,9 @@ package com.abddoul.actualis;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 
 import org.json.simple.JSONObject;
+
+// TODO Mettre le formatter en static 
 
 @Entity
 public class Article {
@@ -51,7 +49,7 @@ public class Article {
 		this.titre = (String) article.get("titre");
 		 this.corps = (String) article.get("corps");
 		 try {
-			 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+			  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
 			this.datePublication = formatter.parse((String) article.get("publication_date"));
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -151,7 +149,7 @@ public class Article {
 	@Override
 	public String toString() {
 		return "Article [id=" + id + ", titre=" + titre + ", corps=" + corps + ", datePublication=" + datePublication
-				+" source ="+source+" ]\n";
+				+" source ="+source+" \n regions : "+regions+"\n secteurs : "+secteurs+"]\n";
 	}
 	 
 }
