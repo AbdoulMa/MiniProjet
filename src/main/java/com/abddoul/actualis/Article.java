@@ -14,56 +14,58 @@ import javax.persistence.Lob;
 import org.json.simple.JSONObject;
 
 // TODO Mettre le formatter en static 
-
+/**
+ * Classe POJO associée
+ */
 @Entity
 public class Article {
-	
-	 @Id
-     @GeneratedValue(strategy = GenerationType.AUTO)
-	 private long id;
-	 @Lob
-	 private String titre;
-	 @Lob
-	 private String corps;
-	 private Date datePublication;
-	 private String source; 
-	 private String edition;
-	 private String departements;
-	 private String regions;
-	 private String secteurs;
-	 private String themes;
-	 
-	 
-	 /**
-	  * Constructeur par défaut 
-	  */
-	 public Article() {
-		 
-	 }
-	 
-	 /**
-	  * Constructeur avec un objet JSON
-	  * @param article
-	  */
-	 public Article(JSONObject article) {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@Lob
+	private String titre;
+	@Lob
+	private String corps;
+	private Date datePublication;
+	private String source;
+	private String edition;
+	private String departements;
+	private String regions;
+	private String secteurs;
+	private String themes;
+
+	/**
+	 * Constructeur par défaut
+	 */
+	public Article() {
+
+	}
+
+	/**
+	 * Constructeur avec un objet JSON
+	 * 
+	 * @param article
+	 */
+	public Article(JSONObject article) {
 		this.titre = (String) article.get("titre");
-		 this.corps = (String) article.get("corps");
-		 try {
-			  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+		this.corps = (String) article.get("corps");
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
 			this.datePublication = formatter.parse((String) article.get("publication_date"));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		 this.source = (String) article.get("source");
-		 this.edition = (String) article.get("edition");
-		 this.departements =(String) article.get("departements");
-		 this.regions = (String) article.get("regions");
-		 this.secteurs = (String) article.get("secteurs");
-		 this.themes = (String) article.get("themes"); 
-	 }
+		this.source = (String) article.get("source");
+		this.edition = (String) article.get("edition");
+		this.departements = (String) article.get("departements");
+		this.regions = (String) article.get("regions");
+		this.secteurs = (String) article.get("secteurs");
+		this.themes = (String) article.get("themes");
+	}
 
-	 /*** Accesseurs  ***/
-	 
+	/*** Accesseurs ***/
+
 	public long getId() {
 		return id;
 	}
@@ -144,12 +146,13 @@ public class Article {
 		this.themes = themes;
 	}
 
-	/*** Méthode toString() ***/
-	
+	/**
+	 * Méthode toString()
+	 */
 	@Override
 	public String toString() {
 		return "Article [id=" + id + ", titre=" + titre + ", corps=" + corps + ", datePublication=" + datePublication
-				+" source ="+source+" \n regions : "+regions+"\n secteurs : "+secteurs+"]\n";
+				+ " source =" + source + " \n regions : " + regions + "\n secteurs : " + secteurs + "]\n";
 	}
-	 
+
 }
