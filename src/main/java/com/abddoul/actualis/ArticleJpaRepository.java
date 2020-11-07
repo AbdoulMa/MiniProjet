@@ -13,6 +13,15 @@ import org.springframework.data.repository.query.Param;
  *
  */
 public interface ArticleJpaRepository extends CrudRepository<Article, Long> {
+	
+	/**
+	 * Recherche d'articles 
+	 * @param beginDate
+	 * @param endDate
+	 * @param region
+	 * @param secteur
+	 * @return
+	 */
 	@Query(value = " FROM  Article WHERE ( datePublication BETWEEN :beginDate AND :endDate) "
 			+ "AND ( :region =\'null\' OR lower(regions) LIKE CONCAT('%',lower(:region ),'%') )"
 			+ "AND ( :secteur = \'null\' OR lower(secteurs) LIKE CONCAT('%',lower(:secteur ),'%') )")
