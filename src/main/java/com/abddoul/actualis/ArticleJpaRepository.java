@@ -15,7 +15,7 @@ import org.springframework.data.repository.query.Param;
 public interface ArticleJpaRepository extends CrudRepository<Article, Long> {
 	
 	/**
-	 * Recherche d'articles 
+	 * Recherche d'articles suivant plusieurs critères
 	 * @param beginDate
 	 * @param endDate
 	 * @param region
