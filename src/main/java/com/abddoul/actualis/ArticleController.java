@@ -8,6 +8,7 @@ import java.util.Locale;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,6 +36,15 @@ public class ArticleController {
 	public List<Article> getArticles() {
 		return (List<Article>) articleRepository.findAll();
 	}
+	
+	/**
+	 * Méthode d'ajout d'un article
+	 * @param user
+	 */
+	   @PostMapping("/articles")
+	    void addUser(@RequestBody Article article) {
+	        articleRepository.save(article);
+	    }
 
 	/**
 	 * Méthode de recherche par critères
