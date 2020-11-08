@@ -1,0 +1,108 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div class="form-group">
+        <label for="titre">Titre</label>
+        <input type="text" [(ngModel)]="article.titre"
+          class="form-control"
+          id="titre"
+          name="titre"
+          placeholder="Titre de l\'article"
+          required #titre="ngModel">
+      </div>
+      <div [hidden]="!titre.pristine" class="alert alert-danger">Titre obligatoire</div>
+
+      <div class="form-group">
+        <label for="corps">Corps</label>
+        <input type="text" [(ngModel)]="article.corps"
+          class="form-control"
+          id="corps"
+          name="corps"
+          placeholder="Corps de l\'article"
+          required #corps="ngModel">
+      </div>
+      <div [hidden]="!corps.pristine" class="alert alert-danger">Corps obligatoire</div>
+
+      <div class="form-group">
+        <label for="datePublication">Date de Publication</label>
+        <input type="text" [(ngModel)]="article.datePublication"
+          class="form-control"
+          id="datePublication"
+          name="datePublication"
+          placeholder="date de publication de l\'article"
+          required #datePublication="ngModel">
+      </div>
+      <div [hidden]="!datePublication.pristine" class="alert alert-danger">Date de Publication obligatoire</div>
+
+      <div class="form-group">
+            <label for="source">Source</label>
+            <input type="text" [(ngModel)]="article.source"
+              class="form-control"
+              id="source"
+              name="source"
+              placeholder="Source de l\'article"
+              required #source="ngModel">
+          </div>
+          <div [hidden]="!source.pristine" class="alert alert-danger">Source obligatoire</div>
+
+        <div class="form-group">
+            <label for="edition">Édition</label>
+            <input type="text" [(ngModel)]="article.edition"
+              class="form-control"
+              id="edition"
+              name="edition"
+              placeholder="Édition de l\'article"
+              required #edition="ngModel">
+          </div>
+          <div [hidden]="!edition.pristine" class="alert alert-danger">Édition obligatoire</div>
+
+        <div class="form-group">
+                  <label for="departements">Départements</label>
+                  <input type="text" [(ngModel)]="article.departements"
+                    class="form-control"
+                    id="departements"
+                    name="departements"
+                    placeholder="Départements"
+                    required #departements="ngModel">
+                </div>
+                <div [hidden]="!departements.pristine" class="alert alert-danger">Département obligatoire</div>
+
+        <div class="form-group">
+                  <label for="regions">Régions</label>
+                  <input type="text" [(ngModel)]="article.regions"
+                    class="form-control"
+                    id="regions"
+                    name="regions"
+                    placeholder="Régions"
+                    required #regions="ngModel">
+                </div>
+                <div [hidden]="!regions.pristine" class="alert alert-danger">Région obligatoire</div>
+
+        <div class="form-group">
+                  <label for="secteurs">secteurs</label>
+                  <input type="text" [(ngModel)]="article.secteurs"
+                    class="form-control"
+                    id="secteurs"
+                    name="secteurs"
+                    placeholder="Secteurs"
+                    required #secteurs="ngModel">
+                </div>
+                <div [hidden]="!secteurs.pristine" class="alert alert-danger">Secteur obligatoire</div>
+
+        <div class="form-group">
+                  <label for="themes">themes</label>
+                  <input type="text" [(ngModel)]="article.themes"
+                    class="form-control"
+                    id="themes"
+                    name="themes"
+                    placeholder="Thèmes"
+                    required #themes="ngModel">
+                </div>
+                <div [hidden]="!themes.pristine" class="alert alert-danger">Thème obligatoire</div>
+
+
+      <button type="submit" [disabled]="!userForm.form.valid"
+        class="btn btn-info">Soumettre</button>
+    </form>
+  </div>
+</div>
