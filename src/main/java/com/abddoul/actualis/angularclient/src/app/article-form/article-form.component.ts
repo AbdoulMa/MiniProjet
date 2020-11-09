@@ -20,11 +20,11 @@ export class ArticleFormComponent  {
          }
 
      onSubmit() {
-	    this.articleService.save(this.article).subscribe(result => this.gotoUserList());
+	    this.articleService.save(this.article).subscribe(result => this.gotoArticlesList());
 	  }
 
 
-    gotoUserList() {
+    gotoArticlesList() {
     	    this.router.navigate(['/articles']);
     	  }
 
