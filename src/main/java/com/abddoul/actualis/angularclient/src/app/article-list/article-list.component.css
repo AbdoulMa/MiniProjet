@@ -1,0 +1,23 @@
+@font-face {
+ font-family: "Lato";
+ src: url("/fonts/Lato-Regular.ttf") format("ttf")
+}
+
+.ensemble {
+  font-family:  "Lato", sans-serif;
+  font-size: 0.8rem;
+}
+
+
+.titre {
+  font-size: 1.0rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.corps {
+font-style: italic;
+margin-bottom: 1.0rem;
+text-align: justify;
+
+}

@@ -1,14 +1,13 @@
 <div *ngFor="let article of articles" class="card my-5">
-  <div class="card-body">
-    <div> {{article.id}}</div>
-    <div> {{article.titre}}</div>
-    <div> {{article.corps}}</div>
-    <div> {{article.datePublication}}</div>
-    <div> {{article.source}}</div>
-    <div> {{article.edition}}</div>
-    <div> {{article.departements}}</div>
-    <div> {{article.regions}}</div>
-    <div> {{article.secteurs}}</div>
-    <div> {{article.themes}}</div>
+  <div class="card-body ensemble">
+    <div class="titre">  {{article.titre}} </div>
+    <div class="corps"> {{article.corps}}</div>
+    <div> <strong><u> Date de publication</u></strong> :  {{pipe.transform(article.datePublication,'longDate')}}</div>
+    <div> <strong><u> Source</u></strong> :  {{article.source}}</div>
+    <div><strong><u> Édition</u></strong>  : {{article.edition}}</div>
+    <div> <strong><u> Département</u></strong> : <span class="badge badge-primary badge-pill" *ngFor="let departement of article.departements.split(',')">{{departement}}</span> </div>
+    <div> <strong><u> Régions</u></strong> : <span class="badge badge-primary badge-pill" *ngFor="let region of article.regions.split(',')">{{region}}</span> </div>
+    <div> <strong><u> Secteurs</u></strong> : <span class="badge badge-primary badge-pill" *ngFor="let secteur of article.secteurs.split(',')">{{secteur}}</span></div>
+    <div> <strong><u> Thèmes</u></strong> : <span class="badge badge-danger badge-pill" *ngFor="let theme of article.themes.split(',')">{{theme}}</span></div>
   </div>
 </div>
