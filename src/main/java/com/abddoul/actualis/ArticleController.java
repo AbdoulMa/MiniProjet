@@ -64,8 +64,8 @@ public class ArticleController {
 			@RequestParam("secteur") final String secteurName) {
 		List<Article> res = this.getArticles();
 		try {
-			Date beginDate = begin.equals("null") || begin.equals("") || begin.equals("dateDebut") ? FORMATTER.parse("2000-01-01") : FORMATTER.parse(begin);
-			Date endDate = end.equals("null") || end.equals("") || begin.equals("dateFin") ? new Date() : FORMATTER.parse(end);
+			Date beginDate = begin.equals("null") || begin.equals("") ? FORMATTER.parse("2000-01-01") : FORMATTER.parse(begin);
+			Date endDate = end.equals("null") || end.equals("") ? new Date() : FORMATTER.parse(end);
 			// Cas beginDate > endDate 
 			if (beginDate.after(endDate)) {
 				Date temp = beginDate;
