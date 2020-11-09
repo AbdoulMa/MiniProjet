@@ -64,8 +64,14 @@ public class ArticleController {
 			@RequestParam("secteur") final String secteurName) {
 		List<Article> res = this.getArticles();
 		try {
-			Date beginDate = begin.equals("null") ? FORMATTER.parse("2000-01-01") : FORMATTER.parse(begin);
-			Date endDate = end.equals("null") ? new Date() : FORMATTER.parse(end);
+			Date beginDate = begin.equals("null") || begin.equals("") || begin.equals("dateDebut") ? FORMATTER.parse("2000-01-01") : FORMATTER.parse(begin);
+			Date endDate = end.equals("null") || end.equals("") || begin.equals("dateFin") ? new Date() : FORMATTER.parse(end);
+			// Cas beginDate > endDate 
+			if (beginDate.after(endDate)) {
+				Date temp = beginDate;
+				beginDate = endDate;
+				endDate = temp;
+			}
 			res = articleRepository.findArticlesByCriterions(beginDate, endDate, regionName, secteurName);
 		} catch (ParseException e) {
 			e.printStackTrace();
