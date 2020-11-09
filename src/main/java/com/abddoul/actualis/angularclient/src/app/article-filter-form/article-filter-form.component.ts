@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { FormsModule,ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from '../article.service';
 import { Article } from '../article';
@@ -30,8 +30,9 @@ export class ArticleFilterFormComponent  {
        }
 
        onSubmit() {
-
          // this.articleService.getFilteredArticles().subscribe(result => this.gotoUserList());
+         alert(this.filterForm.get('dateDebut').value);
+         alert(this.filterForm.get('dateFin').value);
         this.articleService.getFilteredArticles(this.filterForm.get('dateDebut').value, this.filterForm.get('dateFin').value, this.filterForm.get('regions').value, this.filterForm.get('secteurs').value).subscribe( data => {
           this.articles = data;
           this.gotoArticlesList();
@@ -40,6 +41,9 @@ export class ArticleFilterFormComponent  {
 
        gotoArticlesList() {
             this.router.navigate(['/filterarticles']);
+       }
 
-         }
+
+
+
 }
