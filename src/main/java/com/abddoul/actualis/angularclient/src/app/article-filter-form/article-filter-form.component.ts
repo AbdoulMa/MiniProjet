@@ -35,6 +35,10 @@ export class ArticleFilterFormComponent  {
         this.pipe = new DatePipe('fr-FR'); // Date en français
        }
 
+       toHTML(input) : any {
+           return new DOMParser().parseFromString(input, "text/html").documentElement.textContent;
+       }
+
        onSubmit() {
         this.articleService.getFilteredArticles(this.filterForm.get('dateDebut').value, this.filterForm.get('dateFin').value, this.filterForm.get('regions').value, this.filterForm.get('secteurs').value).subscribe( data => {
           this.articles = data;

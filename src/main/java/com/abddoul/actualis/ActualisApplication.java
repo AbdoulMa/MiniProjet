@@ -36,11 +36,10 @@ public class ActualisApplication {
 	CommandLineRunner init(ArticleJpaRepository articleRepository) {
 		return args -> {
 			JSONParser parser = new JSONParser();
+			// Chargement des articles du fichier json 
 			try {
 				Object obj = parser.parse(new FileReader("./site_articles.json"));
 
-				// A JSON object. Key value pairs are unordered. JSONObject supports
-				// java.util.Map interface.
 				JSONArray jsonArray = (JSONArray) obj;
 
 				Iterator<JSONObject> iterator = jsonArray.iterator();
@@ -48,14 +47,7 @@ public class ActualisApplication {
 					Article article = new Article(iterator.next());
 					articleRepository.save(article);
 				}
-
-				// Test
-				// Tous les articles
-				// articleRepository.findAll().forEach(System.out::println);
-
-				// Articles entre deux dates de publications
-				// articleRepository.findArticleBetweenDates(FORMATTER.parse("2010-01-01"),FORMATTER.parse("2020-01-01")).forEach(System.out::println);
-
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

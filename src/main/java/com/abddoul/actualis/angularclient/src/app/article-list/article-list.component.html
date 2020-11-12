@@ -1,7 +1,7 @@
 <div *ngFor="let article of articles" class="card my-5">
   <div class="card-body ensemble">
     <div class="titre">  {{article.titre}} </div>
-    <div class="corps"> {{article.corps}}</div>
+    <div class="corps"> {{toHTML(article.corps)}}</div>
     <div> <strong><u> Date de publication</u></strong> :  {{pipe.transform(article.datePublication,'longDate')}}</div>
     <div> <strong><u> Source</u></strong> :  {{article.source}}</div>
     <div><strong><u> Édition</u></strong>  : {{article.edition}}</div>
